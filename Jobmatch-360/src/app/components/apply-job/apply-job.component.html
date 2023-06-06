@@ -1,0 +1,30 @@
+<!-- ======= Applicaton form Section ======= -->
+
+<section id="application-form" class="application-form">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="section-title">
+            <h2>Apply for Job</h2>
+          </div>
+          <form id="applicationForm" (submit)="submitApplication()" enctype="multipart/form-data">
+            
+            <div class="form-group">
+              <label for="resume">Upload Resume:</label>
+              <input type="file" id="resume" name="resume" required (change)="onResumeSelected($event)">
+            </div>
+            <div class="form-group">
+              <label for="cover-letter">Cover Letter:</label>
+              <textarea id="cover-letter" name="cover-letter" required  [(ngModel)]="cover_Letter"></textarea>
+            </div>
+            
+            <button type="submit" class="submit-button  btn btn-primary">Apply</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- End Application form Section -->
+

@@ -1,0 +1,148 @@
+/*--------------------------------------------------------------
+# Dasboard-image
+--------------------------------------------------------------*/
+.dashboard-image {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .dashboard-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .job-list {
+    margin-top: 20px;
+  }
+  
+  
+  
+  @media (min-width: 992px) {
+    .testimonials .testimonial-item p {
+      width: 80%;
+    }
+  }
+  
+  /*--------------------------------------------------------------
+  # Dashboard
+  --------------------------------------------------------------*/
+  .dashboard h2{
+    font-size: 26px;
+    text-align: center;
+    color: #106eea;
+    font-style: italic;
+    margin-top: 20px;
+  }
+  .dashboard {
+    padding: 80px 0;
+  }
+  
+  .dashboard .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .dashboard .job-list {
+    margin-top: 30px;
+  }
+  
+  .dashboard .job-item {
+    margin-bottom: 30px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .dashboard .job-item h4 a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .dashboard .job-item p {
+    margin-bottom: 10px;
+  }
+
+  .job-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .job-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .job-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+    margin-left: 100px;
+  }
+  
+  .job-list li span {
+    flex: 1;
+  }
+  
+  .job-list li button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 50px;
+    
+  }
+  
+  .job-list li button:hover {
+    background-color: #0056b3;
+  }
+
+
+
+  .job-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .job-item {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .column {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .column:last-child {
+    margin-right: 0px;
+    
+  }
+  
+  h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #007bff;
+  }
+  
+  
+  
+  
+  /*--------------------------------------------------------------
+  # Disable aos animation delay on mobile devices
+  --------------------------------------------------------------*/
+  @media screen and (max-width: 768px) {
+    [data-aos-delay] {
+      transition-delay: 0 !important;
+    }
+  }

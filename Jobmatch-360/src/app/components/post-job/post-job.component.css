@@ -1,0 +1,70 @@
+/*--------------------------------------------------------------
+# Post-job form
+--------------------------------------------------------------*/
+.job-submission h2{
+  font-size: 26px;
+  text-align: center;
+  color: #106eea;
+  font-style: italic;
+  margin-top: 20px;
+}
+.job-submission {
+    padding: 80px 0;
+  }
+  
+  .job-submission .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .job-submission form {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 5px;
+  }
+  
+  .job-submission form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .job-submission form label {
+    font-weight: bold;
+  }
+  
+  .job-submission form input[type="text"],
+  .job-submission form input[type="date"],
+  .job-submission form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  
+  .job-submission form textarea {
+    resize: vertical;
+  }
+  
+  .job-submission form .btn-primary {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .job-submission form .text-center {
+    margin-top: 20px;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .clients img {
+      max-width: 40%;
+    }
+  }
+
+  /*--------------------------------------------------------------
+  # Disable aos animation delay on mobile devices
+  --------------------------------------------------------------*/
+  @media screen and (max-width: 768px) {
+    [data-aos-delay] {
+      transition-delay: 0 !important;
+    }
+  }

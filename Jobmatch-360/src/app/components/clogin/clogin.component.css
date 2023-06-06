@@ -1,0 +1,76 @@
+/*--------------------------------------------------------------
+# Login-page
+--------------------------------------------------------------*/
+
+.signin h2{
+  font-size: 26px;
+  text-align: center;
+  color: #106eea;
+  font-style: italic;
+  margin-top: 20px;
+}
+.signin {
+    padding: 80px 0;
+  }
+  
+  .signin .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .signin form {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 5px;
+  }
+  
+  .signin form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .signin form input[type="email"],
+  .signin form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  
+  .signin form .form-check-label {
+    margin-left: 5px;
+  }
+  
+  .signin form .btn-primary {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .signin form .text-center {
+    margin-top: 20px;
+  }
+  
+  .signin form .text-center a {
+    color: #007bff;
+  }
+  
+  .signin form .text-center a:hover {
+    text-decoration: underline;
+  }
+  
+  .signin form .forgot-password {
+    color: #007bff;
+  }
+  
+  .signin form .forgot-password:hover {
+    text-decoration: underline;
+  }
+  
+
+  /*--------------------------------------------------------------
+  # Disable aos animation delay on mobile devices
+  --------------------------------------------------------------*/
+  @media screen and (max-width: 768px) {
+    [data-aos-delay] {
+      transition-delay: 0 !important;
+    }
+  }

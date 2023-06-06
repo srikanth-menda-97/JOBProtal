@@ -1,0 +1,84 @@
+/*--------------------------------------------------------------
+# Apply-job form
+--------------------------------------------------------------*/
+
+.application-form h2{
+  font-size: 26px;
+  text-align: center;
+  color: #106eea;
+  font-style: italic;
+  margin-top: 20px;
+}
+.application-form {
+    padding: 20px;
+    background-color: #f8f9fa;
+  }
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+  }
+  
+  input[type="text"]:focus,
+  textarea:focus {
+    outline-color: #007bff; 
+  }
+  
+  input[type="file"] {
+    display: block;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  
+  
+  .application-form .text-center a {
+    color: #007bff;
+  }
+  
+  .application-form .btn-primary {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .submit-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .submit-button:hover {
+    background-color: #007bff;
+  }
+  
+  /*--------------------------------------------------------------
+  # Disable aos animation delay on mobile devices
+  --------------------------------------------------------------*/
+  @media screen and (max-width: 768px) {
+    [data-aos-delay] {
+      transition-delay: 0 !important;
+    }
+  }

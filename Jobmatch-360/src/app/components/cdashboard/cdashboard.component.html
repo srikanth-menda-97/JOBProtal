@@ -1,0 +1,54 @@
+<!-- Jobs Dashboard -->
+
+<div class="row">
+  <div class="col-lg-8 offset-lg-2">
+    <div class="dashboard-image">
+      <img src="assets/img/dashboard-image.jpg" alt="Dashboard Image">
+    </div>
+  </div>
+</div>
+
+<section id="dashboard" class="dashboard">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="section-title">
+          <h2>Jobs List</h2>
+        </div>
+        <div class="job-list">
+          <ul>
+            <li *ngFor="let job of jobs">
+              <div class="job-item">
+                <div class="column">
+                  <h4>Job Title</h4>
+                  <p>{{ job.job_title }}</p>
+                </div>
+                <div class="column">
+                  <h4>Job Description</h4>
+                  <p>{{ job.job_description }}</p>
+                </div>
+                <div class="column">
+                  <h4>Salary</h4>
+                  <p>{{ job.salary }}</p>
+                </div>
+                <div class="column">
+                  <h4>Location</h4>
+                  <p>{{ job.location }}</p>
+                </div>
+                <div class="column">
+                  <h4>Start Date</h4>
+                  <p>{{ job.job_start_date | date }}</p>
+                </div>
+              </div>
+
+              <button (click)="navigateToApplyjob()">View Job</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- End Dashboard Section -->

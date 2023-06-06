@@ -1,0 +1,11 @@
+<h2>View Job</h2>
+<div *ngIf="job">
+  <h3>{{ job.job_title }}</h3>
+  <p>{{ job.job_description }}</p>
+  <p>Salary: {{ job.salary }}</p>
+  <p>Location: {{ job.location }}</p>
+  <p>Start Date: {{ job.job_start_date | date }}</p>
+
+  <button (click)="navigateToApplyjob()">Apply</button>
+</div>
+
