@@ -14,4 +14,19 @@ export class EmployerServiceService {
   createEmployer(payload: any) {
     return this.httpClient.post(this.SERVER_URL + "/employers", payload);        
   }
+
+  // Login employer
+  loginEmployer(payload: any) {
+    return this.httpClient.post(this.SERVER_URL + "/employer-login", payload);        
+  }
+
+  // GET Job data of employer
+  getPostedJobData(employer_id: any) {
+    return this.httpClient.get(this.SERVER_URL + "/employers/"+ employer_id + "/jobs");    
+  }
+
+  // POST a Job
+  createJob(payload: any) {
+    return this.httpClient.post(this.SERVER_URL + "/jobs", payload);    
+  }
 }

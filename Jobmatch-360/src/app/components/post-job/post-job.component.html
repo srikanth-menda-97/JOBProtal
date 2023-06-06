@@ -6,45 +6,93 @@
           <div class="section-title">
             <h2>Job Submission</h2>
           </div>
-          <form action="#" method="POST" role="form">
+          <form name="form" #jobForm="ngForm" (ngSubmit)="onSubmit(jobForm)" novalidate>
             <div class="row">
               <div class="col-md-6 form-group">
-                <label for="job-id">Job ID:</label>
-                <input type="text" class="form-control" id="job-id" name="job-id" required>
+                <label for="job_id">Job ID:</label>
+                <input type="text" class="form-control" id="job_id" name="job_id" 
+                [(ngModel)]="jobDetail.job_id" #job_id="ngModel" required>
+                <div *ngIf="job_id.invalid && (job_id.dirty || job_id.touched)">
+                  <div class="text-danger" *ngIf="job_id.errors?.['required']">
+                    Job id is required.
+                  </div>
+                </div>
               </div>
               <div class="col-md-6 form-group">
-                <label for="company-name">Company Name:</label>
-                <input type="text" class="form-control" id="company-name" name="company-name" required>
+                <label for="company_name">Company Name:</label>
+                <input type="text" class="form-control" id="company_name" name="company_name" 
+                [(ngModel)]="jobDetail.company_name" #company_name="ngModel" required>
+                <div *ngIf="company_name.invalid && (company_name.dirty || company_name.touched)">
+                  <div class="text-danger" *ngIf="company_name.errors?.['required']">
+                    Company name is required.
+                  </div>
+                </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 form-group">
-                <label for="job-title">Job Title:</label>
-                <input type="text" class="form-control" id="job-title" name="job-title" required>
+                <label for="job_title">Job Title:</label>
+                <input type="text" class="form-control" id="job_title" name="job_title"
+                [(ngModel)]="jobDetail.job_title" #job_title="ngModel" required>
+                <div *ngIf="job_title.invalid && (job_title.dirty || job_title.touched)">
+                  <div class="text-danger" *ngIf="job_title.errors?.['required']">
+                    Job title is required.
+                  </div>
+                </div>
               </div>
               <div class="col-md-6 form-group">
-                <label for="job-description">Job Description:</label>
-                <textarea class="form-control" id="job-description" name="job-description" rows="5" required></textarea>
+                <label for="job_description">Job Description:</label>
+                <textarea class="form-control" id="job_description" name="job_description" rows="5" 
+                [(ngModel)]="jobDetail.job_description" #job_description="ngModel" required></textarea>
+                <div *ngIf="job_description.invalid && (job_description.dirty || job_description.touched)">
+                  <div class="text-danger" *ngIf="job_description.errors?.['required']">
+                    Job description is required.
+                  </div>
+                </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 form-group">
-                <label for="job-start-date">Job Start Date:</label>
-                <input type="date" class="form-control" id="job-start-date" name="job-start-date" required>
+                <label for="job_start_date">Job Start Date:</label>
+                <input type="date" class="form-control" id="job_start_date" name="job_start_date" 
+                [(ngModel)]="jobDetail.job_start_date" #job_start_date="ngModel" required>
+                <div *ngIf="job_start_date.invalid && (job_start_date.dirty || job_start_date.touched)">
+                  <div class="text-danger" *ngIf="job_start_date.errors?.['required']">
+                    Job start date is required.
+                  </div>
+                </div>
               </div>
               <div class="col-md-6 form-group">
-                <label for="application-deadline">Application Deadline:</label>
-                <input type="date" class="form-control" id="application-deadline" name="application-deadline" required>
+                <label for="application_deadline">Application Deadline:</label>
+                <input type="date" class="form-control" id="application_deadline" name="application_deadline" 
+                [(ngModel)]="jobDetail.application_deadline" #application_deadline="ngModel" required>
+                <div *ngIf="application_deadline.invalid && (application_deadline.dirty || application_deadline.touched)">
+                  <div class="text-danger" *ngIf="application_deadline.errors?.['required']">
+                    Application deadline is required.
+                  </div>
+                </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 form-group">
                 <label for="salary">Salary:</label>
-                <input type="text" class="form-control" id="salary" name="salary" required>
+                <input type="text" class="form-control" id="salary" name="salary" 
+                [(ngModel)]="jobDetail.salary" #salary="ngModel" required>
+                <div *ngIf="salary.invalid && (salary.dirty || salary.touched)">
+                  <div class="text-danger" *ngIf="salary.errors?.['required']">
+                    Salary is required.
+                  </div>
+                </div>
               </div>
               <div class="col-md-6 form-group">
                 <label for="location">Location:</label>
-                <input type="text" class="form-control" id="location" name="location" required>
+                <input type="text" class="form-control" id="location" name="location" 
+                [(ngModel)]="jobDetail.location" #location="ngModel" required>
+                <div *ngIf="location.invalid && (location.dirty || location.touched)">
+                  <div class="text-danger" *ngIf="location.errors?.['required']">
+                    Location is required.
+                  </div>
+                </div>
               </div>
             </div>
             <div class="text-center">

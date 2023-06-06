@@ -12,25 +12,50 @@
             <div class="col-md-6 form-group">
               <input type="text" name="username" class="form-control" id="username" placeholder="Username"
                 [(ngModel)]="employerData.username" #username="ngModel" required>
+              <div *ngIf="username.invalid && (username.dirty || username.touched)">
+                <div class="text-danger" *ngIf="username.errors?.['required']">
+                  Username is required.
+                </div>
+              </div>
             </div>
             <div class="col-md-6 form-group">
               <input type="email" name="email" class="form-control" id="email" placeholder="Email"
                 [(ngModel)]="employerData.email" #email="ngModel" required>
+                <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                  <div class="text-danger" *ngIf="email.errors?.['required']">
+                    Email is required.
+                  </div>
+                </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 form-group">
               <input type="tel" name="phone" class="form-control" id="phone" placeholder="Phone" 
               [(ngModel)]="employerData.phone" #phone="ngModel" required>
+              <div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+                <div class="text-danger" *ngIf="phone.errors?.['required']">
+                  Phone number is required.
+                </div>
+              </div>
             </div>
             <div class="col-md-6 form-group">
               <input type="password" name="password" class="form-control" id="password" placeholder="Password" 
               [(ngModel)]="employerData.password" #password="ngModel" required>
+              <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                <div class="text-danger" *ngIf="password.errors?.['required']">
+                  Password is required.
+                </div>
+              </div>
             </div>
 
             <div class="col-md-6 form-group">
               <input type="text" name="company_name" class="form-control" id="company_name" placeholder="Company Name"
               [(ngModel)]="employerData.company_name" #company_name="ngModel" required>
+              <div *ngIf="company_name.invalid && (company_name.dirty || company_name.touched)">
+                <div class="text-danger" *ngIf="company_name.errors?.['required']">
+                  Company name number is required.
+                </div>
+              </div>
             </div>
           </div>
           <div class="form-group">

@@ -8,12 +8,24 @@
           <div class="section-title">
             <h2>LOGIN</h2>
           </div>
-          <form id="login" action="/employers" method="POST" role="form">
+          <form name="form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" novalidate>
             <div class="form-group">
-              <input type="text" name="username" class="form-control" id="username" placeholder="Username" required>
+              <input type="text" name="username" class="form-control" id="username" placeholder="Username" 
+              [(ngModel)]="employerData.username" #username="ngModel" required>
+              <div *ngIf="username.invalid && (username.dirty || username.touched)">
+                <div class="text-danger" *ngIf="username.errors?.['required']">
+                  Username is required.
+                </div>
+              </div>
             </div>
             <div class="form-group">
-              <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+              <input type="password" name="password" class="form-control" id="password" placeholder="Password" 
+              [(ngModel)]="employerData.password" #password="ngModel" required>
+              <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                <div class="text-danger" *ngIf="password.errors?.['required']">
+                  Password is required.
+                </div>
+              </div>
             </div>
             <div class="form-group form-check">
               <input type="checkbox" class="form-check-input" id="rememberMe">

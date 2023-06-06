@@ -39,11 +39,11 @@
   
   .dashboard .section-title {
     text-align: center;
-    margin-bottom: 40px;
   }
   
   .dashboard .job-list {
     margin-top: 30px;
+    overflow-x: scroll;
   }
   
   .dashboard .job-item {
@@ -68,4 +68,21 @@
     [data-aos-delay] {
       transition-delay: 0 !important;
     }
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    min-width: 200px
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
   }
