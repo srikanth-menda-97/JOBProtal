@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Icandidate } from 'src/app/interfaces/icandidate';
 import { Iclogin } from 'src/app/interfaces/iclogin';
+import { CandidateService } from 'src/app/services/candidate.service';
 import { IcloginService } from 'src/app/services/iclogin.service';
 
 @Component({
@@ -13,22 +15,34 @@ export class CloginComponent {
 email!: string;
  password!:string ;
   errorMessage!: string;
-  constructor(private router: Router, private icloginService: IcloginService) { }
+  candidate: Icandidate = {
+    candidate_id: 0,
+    name: '',
+    username: '',
+    email: '',
+    phone: '',
+    password: '',
+  };
+  constructor(private router: Router, private candidateService: CandidateService) { }
 
-  login() {
-    this.icloginService.login(this.email, this.password).subscribe(
-      (response: any) => {
-        if (response.success) {
-          this.router.navigate(['/cdashboard']);
-        } else {
-          this.errorMessage = response.message;
-        }
+  login(loginForm: any) {
+    (<any>Object).values(loginForm.controls).forEach((control: any) => {
+      control.markAsTouched();
+    });
+
+    this.candidateService.loginCandidate(this.candidate).subscribe({
+      next: (response: any) => {
+        let newCandidate : Icandidate = response.candidate;
+        console.log('Candidate Login successfully!', newCandidate);
+        alert('Login successful!');
+        this.router.navigate(['/cdashboard', newCandidate.candidate_id]);
       },
-      (error: any) => {
-        console.error(error);
-        this.errorMessage = 'An error occurred during login.';
-      }
-    );
+      error : (error) => {
+        console.error('Candidate login failed:', error);
+        alert('Login failed. Please try again later.');
+
+      },
+    });
   }
   
   
