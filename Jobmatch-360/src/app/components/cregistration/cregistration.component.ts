@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Icandidate } from 'src/app/interfaces/icandidate';
 import { CandidateService } from 'src/app/services/candidate.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cregistration',
@@ -14,6 +15,7 @@ export class CregistrationComponent {
   isFormSubmitted: boolean = false;
 
   candidate: Icandidate = {
+    candidate_id: 0,
     name: '',
     username: '',
     email: '',
@@ -21,7 +23,8 @@ export class CregistrationComponent {
     password: '',
   };
 
-  constructor(private candidateService: CandidateService) { }
+  constructor(private candidateService: CandidateService,
+    private router: Router) { }
   registerCandidate(registerForm : any): void {
 
     this.isFormSubmitted = true;
@@ -34,7 +37,7 @@ export class CregistrationComponent {
         console.log('Candidate registered successfully!', newCandidate);
         alert('Registration successful!');
         this.clearForm();
-        
+        this.router.navigate(['/cdashboard', newCandidate.candidate_id]);
       },
       error : (error) => {
         console.error('Candidate registration failed:', error);
@@ -55,6 +58,7 @@ export class CregistrationComponent {
   }
   private clearForm(): void {
     this.candidate = {
+      candidate_id: 0,
       name: '',
       username: '',
       email: '',
