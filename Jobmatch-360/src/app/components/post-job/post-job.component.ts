@@ -24,10 +24,19 @@ export class PostJobComponent implements OnInit {
       control.markAsTouched();
     });
     this.employerService.createJob(this.jobDetail)
-      .subscribe((response: any) => {
-        console.log(response);
-        this.jobDetail = response;
-        this.router.navigate(['/edashboard', this.jobDetail.employer_id]);
-      });
+      .subscribe(
+        {
+          next: (response: any) => {
+            console.log('Job created successfully!', response);
+            alert('Job created successful!');
+            console.log(response);
+            this.jobDetail = response;
+            this.router.navigate(['/edashboard', this.jobDetail.employer_id]);
+          },
+          error : (error: any) => {
+            console.error('Job creation failed:', error);
+            alert('Job creation failed. Please try again.');
+          },
+        });
   }
 }

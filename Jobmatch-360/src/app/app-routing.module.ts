@@ -28,9 +28,9 @@ const routes: Routes = [
   { path: 'candidateportal', component: CandidateportalComponent  },
   { path: 'cregistration', component: CregistrationComponent  },
   { path: 'clogin', component:  CloginComponent },
-  { path: 'cdashboard', component: CdashboardComponent  },
+  { path: 'cdashboard/:term', component: CdashboardComponent  },
   { path: 'view-job/:job_id', component:  ViewJobComponent  },
-  { path: 'apply-job', component: ApplyJobComponent  },
+  { path: ':term/apply-job/:job_id', component: ApplyJobComponent  },
   { path: 'contact', component:  ContactComponent  },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 

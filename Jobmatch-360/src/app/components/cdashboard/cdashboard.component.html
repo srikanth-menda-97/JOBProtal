@@ -16,34 +16,31 @@
           <h2>Jobs List</h2>
         </div>
         <div class="job-list">
-          <ul>
-            <li *ngFor="let job of jobs">
-              <div class="job-item">
-                <div class="column">
-                  <h4>Job Title</h4>
-                  <p>{{ job.job_title }}</p>
-                </div>
-                <div class="column">
-                  <h4>Job Description</h4>
-                  <p>{{ job.job_description }}</p>
-                </div>
-                <div class="column">
-                  <h4>Salary</h4>
-                  <p>{{ job.salary }}</p>
-                </div>
-                <div class="column">
-                  <h4>Location</h4>
-                  <p>{{ job.location }}</p>
-                </div>
-                <div class="column">
-                  <h4>Start Date</h4>
-                  <p>{{ job.job_start_date | date }}</p>
-                </div>
-              </div>
+          <table>
+            <tr>
+              <th>Job Id</th>
+              <th>Job Title</th>
+              <th>Job Description</th>
+              <th>Company Name</th>
+              <th>Salary</th>
+              <th>Location</th>
+              <th>Created Date</th>
+              <th>Application Deadline</th>
+              <th></th>
+            </tr>
+            <tr *ngFor="let job of jobs; let i=index;">
+              <td>{{job.job_id}}</td>
+              <td>{{job.job_title}}</td>
+              <td>{{job.job_description}}</td>
+              <td>{{job.company_name}}</td>
+              <td>{{job.salary}}</td>
+              <td>{{job.location}}</td>
+              <td>{{job.job_start_date | date: 'dd-MM-yyyy'}}</td>
+              <td>{{job.application_deadline | date: 'dd-MM-yyyy'}}</td>
+              <td><button class="btn btn-primary" (click)="navigateToApplyjob(job.job_id)">Apply Job</button></td>
+            </tr>
+          </table>
 
-              <button (click)="navigateToApplyjob()">View Job</button>
-            </li>
-          </ul>
         </div>
       </div>
     </div>

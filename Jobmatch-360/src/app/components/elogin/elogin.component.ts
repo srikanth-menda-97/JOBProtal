@@ -22,10 +22,19 @@ export class EloginComponent {
       control.markAsTouched();
     });
     this.employerService.loginEmployer(this.employerData)
-      .subscribe((response: any) => {
-        console.log(response);
-        this.employerData = response.employer;
-        this.router.navigate(['/edashboard', this.employerData.employer_id]);
-      });
+      .subscribe(
+        {
+          next: (response: any) => {
+            console.log('Employer login successfully!', response);
+            alert('Registration successful!');
+            console.log(response);
+            this.employerData = response.employer;
+            this.router.navigate(['/edashboard', this.employerData.employer_id]);
+          },
+          error : (error: any) => {
+            console.error('Employer login failed:', error);
+            alert('Login failed. Please try again.');
+          },
+        });
   }
 }

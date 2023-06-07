@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Iapplication } from 'src/app/interfaces/iapplication';
 import { ApplicationService } from 'src/app/services/application.service';
 
@@ -7,24 +8,30 @@ import { ApplicationService } from 'src/app/services/application.service';
   templateUrl: './apply-job.component.html',
   styleUrls: ['./apply-job.component.css']
 })
-export class ApplyJobComponent {
-
+export class ApplyJobComponent implements OnInit{
   resume : File | null = null;
   cover_Letter: string = '';
+  candidateId: any;
+  jobId: any;
 
-  
-  
+  constructor(private applicationService: ApplicationService,
+    private activatedRoute: ActivatedRoute,) { }
 
-  constructor(private applicationService: ApplicationService) { }
-
+  ngOnInit(): void {
+    this.candidateId = this.activatedRoute.snapshot.params["term"];
+    this.jobId = this.activatedRoute.snapshot.params["job_id"];
+  }
   submitApplication() {
    
     const newApplication = new FormData();
     if (this.resume) {
       newApplication.append('resume', this.resume, this.resume.name);
+      console.log(newApplication);
     }
-    newApplication.append('coverLetter', this.cover_Letter);
-
+    newApplication.append('cover_letter', this.cover_Letter);
+    newApplication.append('candidate_id', this.candidateId);
+    newApplication.append('job_id', this.jobId);
+    console.log(newApplication);
     this.applicationService.submitApplication(newApplication)
       .subscribe(
         response => {
@@ -48,6 +55,6 @@ export class ApplyJobComponent {
   }
    
 
-  }
+}
 
 

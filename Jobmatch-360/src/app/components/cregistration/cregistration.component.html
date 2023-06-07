@@ -6,7 +6,7 @@
           <div class="section-title">
             <h2>REGISTER</h2>
           </div>
-          <form id= "registration"(ngSubmit)="registerCandidate()"    role="form">
+          <form id="registration" name="form" #registerForm="ngForm" (ngSubmit)="registerCandidate(registerForm)" novalidate>
 
             <div class="row">
               <div class="col-md-6 form-group">

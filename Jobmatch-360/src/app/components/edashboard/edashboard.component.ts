@@ -21,9 +21,14 @@ export class EdashboardComponent implements OnInit {
 
   getJobData() {
     this.employerService.getPostedJobData(this.employerId)
-      .subscribe((response: any) => {
-        console.log(response);
-        this.jobData = response;
+      .subscribe({
+        next: (response: any) => {
+          this.jobData = response;
+        },
+        error : (error: any) => {
+          console.error('Fetching job data failed:', error);
+          alert('Fetching failed. Please try again.');
+        },
       });
   }
 

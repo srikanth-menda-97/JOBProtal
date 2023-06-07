@@ -12,7 +12,7 @@ export class CdashboardService {
 
   constructor(private http: HttpClient) { }
 
-  getJobs(): Observable<Icdashboard[]> {
-    return this.http.get<Icdashboard[]>(this.url);
+  getJobs(): Observable<any> {
+    return this.http.get<any>(this.url);
   }
 }

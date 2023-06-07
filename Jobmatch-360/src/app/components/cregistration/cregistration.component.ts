@@ -22,29 +22,26 @@ export class CregistrationComponent {
   };
 
   constructor(private candidateService: CandidateService) { }
-  registerCandidate(): void {
+  registerCandidate(registerForm : any): void {
 
     this.isFormSubmitted = true;
+    (<any>Object).values(registerForm.controls).forEach((control: any) => {
+      control.markAsTouched();
+    });
 
-    if (this.isFormInvalid()) {
-      alert('Please fill in all required fields.');
-      return;
-    }
-
-    this.candidateService.registerCandidate(this.candidate).subscribe(
-      (newCandidate: Icandidate) => {
+    this.candidateService.registerCandidate(this.candidate).subscribe({
+      next: (newCandidate: Icandidate) => {
         console.log('Candidate registered successfully!', newCandidate);
         alert('Registration successful!');
         this.clearForm();
         
       },
-      (error) => {
+      error : (error) => {
         console.error('Candidate registration failed:', error);
         alert('Registration failed. Please try again later.');
 
       },
-      
-    );
+    });
   }
   private isFormInvalid(): boolean {
     return (
