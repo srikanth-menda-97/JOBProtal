@@ -34,8 +34,8 @@ export class CregistrationComponent {
 
     this.candidateService.registerCandidate(this.candidate).subscribe({
       next: (newCandidate: Icandidate) => {
-        console.log('Candidate registered successfully!', newCandidate);
-        alert('Registration successful!');
+        // console.log('Candidate registered successfully!', newCandidate);
+        // alert('Registration successful!');
         this.clearForm();
         this.router.navigate(['/cdashboard', newCandidate.candidate_id]);
       },

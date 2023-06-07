@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'eregistration', component: EregistrationComponent },
   { path: 'elogin', component: EloginComponent  },
   { path: 'edashboard/:term', component: EdashboardComponent },
-  { path: 'view-applications', component: ViewApplicationsComponent  },
+  { path: 'view-applications/:job_id', component: ViewApplicationsComponent  },
   { path: 'edashboard/:term/post-job', component: PostJobComponent  },
   { path: 'candidateportal', component: CandidateportalComponent  },
   { path: 'cregistration', component: CregistrationComponent  },

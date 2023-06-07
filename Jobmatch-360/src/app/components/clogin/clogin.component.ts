@@ -33,8 +33,8 @@ email!: string;
     this.candidateService.loginCandidate(this.candidate).subscribe({
       next: (response: any) => {
         let newCandidate : Icandidate = response.candidate;
-        console.log('Candidate Login successfully!', newCandidate);
-        alert('Login successful!');
+        // console.log('Candidate Login successfully!', newCandidate);
+        // alert('Login successful!');
         this.router.navigate(['/cdashboard', newCandidate.candidate_id]);
       },
       error : (error) => {

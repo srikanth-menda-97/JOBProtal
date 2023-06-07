@@ -30,6 +30,7 @@
               <th>Location</th>
               <th>Created Date</th>
               <th>Application Deadline</th>
+              <th></th>
             </tr>
             <tr *ngFor="let job of jobData; let i=index;">
               <td>{{job.job_id}}</td>
@@ -40,6 +41,7 @@
               <td>{{job.location}}</td>
               <td>{{job.job_start_date | date: 'dd-MM-yyyy'}}</td>
               <td>{{job.application_deadline | date: 'dd-MM-yyyy'}}</td>
+              <td><button class="btn btn-primary" (click)="viewApplications(job.job_id)">View Applications</button></td>
             </tr>
           </table>
 

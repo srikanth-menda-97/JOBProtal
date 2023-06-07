@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Iapplication } from 'src/app/interfaces/iapplication';
 import { ApplicationService } from 'src/app/services/application.service';
 
@@ -15,7 +15,8 @@ export class ApplyJobComponent implements OnInit{
   jobId: any;
 
   constructor(private applicationService: ApplicationService,
-    private activatedRoute: ActivatedRoute,) { }
+    private activatedRoute: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.candidateId = this.activatedRoute.snapshot.params["term"];
@@ -26,17 +27,16 @@ export class ApplyJobComponent implements OnInit{
     const newApplication = new FormData();
     if (this.resume) {
       newApplication.append('resume', this.resume, this.resume.name);
-      console.log(newApplication);
     }
     newApplication.append('cover_letter', this.cover_Letter);
     newApplication.append('candidate_id', this.candidateId);
     newApplication.append('job_id', this.jobId);
-    console.log(newApplication);
     this.applicationService.submitApplication(newApplication)
       .subscribe(
         response => {
           console.log('Application created successfully:', response);
           // Handle success scenario, such as showing a success message
+          this.router.navigate(['/cdashboard', this.candidateId]);
         },
         error => {
           console.error('Error creating application:', error);

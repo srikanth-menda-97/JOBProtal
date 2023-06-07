@@ -25,9 +25,8 @@ export class EloginComponent {
       .subscribe(
         {
           next: (response: any) => {
-            console.log('Employer login successfully!', response);
-            alert('Registration successful!');
-            console.log(response);
+            // console.log('Employer login successfully!', response);
+            // alert('Registration successful!');
             this.employerData = response.employer;
             this.router.navigate(['/edashboard', this.employerData.employer_id]);
           },

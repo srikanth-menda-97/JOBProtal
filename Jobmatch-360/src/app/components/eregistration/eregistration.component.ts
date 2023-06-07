@@ -24,8 +24,8 @@ export class EregistrationComponent implements OnInit {
     this.employerService.createEmployer(this.employerData).subscribe(
       {
         next: (response: any) => {
-          console.log('Employer registered successfully!', response);
-          alert('Registration successful!');
+          // console.log('Employer registered successfully!', response);
+          // alert('Registration successful!');
           this.employerData = response;
           this.router.navigate(['/edashboard']);
         },

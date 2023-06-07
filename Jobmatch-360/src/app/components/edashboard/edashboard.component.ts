@@ -35,4 +35,8 @@ export class EdashboardComponent implements OnInit {
   openJobPostForm() {
     this.router.navigate(["/edashboard", this.employerId, "post-job"])
   }
+
+  viewApplications(jobId: any) {
+    this.router.navigate(['/view-applications', jobId]);
+  }
 }

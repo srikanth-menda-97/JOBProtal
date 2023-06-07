@@ -1,1 +1,30 @@
-<p>view-applications works!</p>
+<section id="dashboard" class="dashboard">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 offset-lg-2 mx-auto">
+          <div class="d-flex justify-content-between">
+            <div class="section-title">
+              <h2>Job Application Dashboard</h2>
+            </div>
+          </div>
+          
+          <div class="job-list">
+            <table>
+              <tr>
+                <th>Job Id</th>
+                <th>Cover Letter</th>
+                <th>Resume</th>
+              </tr>
+              <tr *ngFor="let application of applicationsData; let i=index;">
+                <td>{{application.job_id}}</td>
+                <td>{{application.cover_letter}}</td>
+                <td><button class="btn btn-primary" (click)="downloadResume(application.resume)">Download</button></td>
+              </tr>
+            </table>
+  
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </section>

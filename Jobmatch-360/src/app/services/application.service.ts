@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Iapplication } from '../interfaces/iapplication';
 import { Observable, firstValueFrom } from 'rxjs';
@@ -14,8 +14,16 @@ export class ApplicationService {
   constructor(private http: HttpClient) { }
 
   submitApplication(applicationData: FormData) {
-    return this.http.post<Iapplication>(this.url, applicationData);
+    var headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.post<Iapplication>(this.url, applicationData, {headers: headers});
   }
 
+  downloadResume(payload: any): Observable<Blob>{
+    return this.http.post<Blob>(this.SERVER_URL + '/download', payload, {responseType: 'blob' as 'json'});
+  }
 
+  viewApplications(jobId: any) : Observable<any>{
+    return this.http.get(this.SERVER_URL + '/applications/' + jobId);
+  }
 }
