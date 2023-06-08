@@ -14,18 +14,17 @@
   </section>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center">
+  <header id="header" class="d-flex align-items-center not-mobile">
     <div class="container d-flex align-items-center justify-content-between">
 
       
        <a routerLink="/" class="logo"><img src="assets/img/jobmatch.png" alt=""></a>
-
-      <nav id="navbar" class="navbar" [class.navbarclass]= "navbarclass">
-        <ul>
+      <nav id="navbar" class="navbar ">
+        <ul #myLinks>
           <li><a class="nav-link scrollto " routerLink="/">Home</a></li>
           <li><a class="nav-link scrollto" routerLink="/about">About</a></li>
 
-          <li class="dropdown"><a routerLink="/employerportal"><span>Employer Portal</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a><span>Employer Portal</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a routerLink="/eregistration">Registration</a></li>
               <li><a routerLink="/elogin">Login</a></li>
@@ -37,7 +36,7 @@
             </ul>
           </li>
           
-          <li class="dropdown"><a routerLink="/candidateportal"><span>Candidate Portal</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a><span>Candidate Portal</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a routerLink="/cregistration">Registration</a></li>
               <li><a routerLink="/clogin">Login</a></li>
@@ -51,7 +50,52 @@
           <li><a class="nav-link scrollto" routerLink="/contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"(click)="openMenu()"></i>
-      </nav><!-- .navbar -->
-
+      </nav>
+      
+     
+      
     </div>
+
+     <!-- .navbar -->
+     
   </header><!-- End Header -->
+
+  <header class="topnav">
+    <div class="d-flex flex-column">
+      <div id="navbar" class="navbar p-3" style="margin-left: auto;">
+        <i class="bi bi-list mobile-nav-toggle"(click)="openMenu()"></i>
+      </div>
+      <div>
+        <ul class="topnav pl-0" *ngIf="navbarclass">
+          <li><a class="nav-link scrollto " routerLink="/" (click)="openMenu()">Home</a></li>
+          <li><a class="nav-link scrollto" routerLink="/about" (click)="openMenu()">About</a></li>
+  
+          <li class="dropdown"><a (click)="openEmployerMenu = !openEmployerMenu"><span>Employer Portal</span> <i class="bi bi-chevron-down ms-3"></i></a>
+            <ul *ngIf="openEmployerMenu">
+              <li><a routerLink="/eregistration" (click)="openMenu()">Registration</a></li>
+              <li><a routerLink="/elogin" (click)="openMenu()">Login</a></li>
+              
+              <!-- <li><a routerLink="/edashboard">Dashboard</a></li> 
+             
+              
+              <li><a routerLink="/post-job">Post Job</a></li> -->
+            </ul>
+          </li>
+          
+          <li class="dropdown"><a (click)="openCandidateMenu = !openCandidateMenu"><span>Candidate Portal</span> <i class="bi bi-chevron-down ms-3"></i></a>
+            <ul *ngIf="openCandidateMenu">
+              <li><a routerLink="/cregistration" (click)="openMenu()">Registration</a></li>
+              <li><a routerLink="/clogin" (click)="openMenu()">Login</a></li>
+              
+                  <!-- <li><a routerLink="/cdashboard">Dashboard</a></li>
+                
+              <li><a routerLink="/apply-job">Apply Job</a></li> -->
+            </ul>
+          </li>
+  
+          <li><a class="nav-link scrollto" routerLink="/contact">Contact</a></li>
+        </ul>
+      </div>
+     
+    </div>
+  </header>

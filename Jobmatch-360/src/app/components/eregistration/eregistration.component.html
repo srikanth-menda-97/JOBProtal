@@ -53,7 +53,7 @@
               [(ngModel)]="employerData.company_name" #company_name="ngModel" required>
               <div *ngIf="company_name.invalid && (company_name.dirty || company_name.touched)">
                 <div class="text-danger" *ngIf="company_name.errors?.['required']">
-                  Company name number is required.
+                  Company name is required.
                 </div>
               </div>
             </div>

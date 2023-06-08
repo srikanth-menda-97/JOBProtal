@@ -444,3 +444,58 @@ body {
   .navbar-mobile .dropdown>.dropdown-active {
     display: block;
   }
+
+  
+
+  @media (max-width: 768px) {
+    .topnav {
+      display: block !important;
+      background: #dee2e6;
+    }
+
+    .topnav a {
+      color: black;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      display: block;
+    }
+    
+    .topnav a.icon {
+      background: black;
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .topnav .dropdown .dropdown ul {
+      top: 0;
+      left: calc(100% - 30px);
+      visibility: hidden;
+    }
+    
+    .topnav .dropdown .dropdown:hover>ul {
+      opacity: 1;
+      top: 0;
+      left: 100%;
+      visibility: visible;
+    }
+
+    .not-mobile {
+      display: none !important;
+    }
+  }
+  
+  .topnav {
+    display: none;
+  }
+
+  ul li {
+    list-style-type: none !important;
+  }

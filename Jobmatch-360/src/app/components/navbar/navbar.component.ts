@@ -6,7 +6,8 @@ import { Component,  } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent  {
-
+  openCandidateMenu: boolean = false;
+  openEmployerMenu: boolean = false;
   navbarclass:boolean = false;
   openMenu(){
     this.navbarclass =! this.navbarclass;

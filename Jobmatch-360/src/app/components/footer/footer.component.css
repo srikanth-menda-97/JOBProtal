@@ -20,6 +20,14 @@
   #footer .footer-top .footer-contact {
     margin-bottom: 30px;
     margin-left: 90px;
+    
+  }
+
+  @media (max-width: 768px) {
+    #footer .footer-top .footer-contact {
+      margin-left: 0px;
+    }
+    
   }
   
   #footer .footer-top .footer-contact h3 {
@@ -53,6 +61,13 @@
   #footer .footer-top .footer-links {
     margin-bottom: 30px;
     margin-left: 90px;
+  }
+
+  @media (max-width: 768px) {
+    #footer .footer-top .footer-links {
+      margin-left: 0px;
+    }
+    
   }
   
   #footer .footer-top .footer-links ul {

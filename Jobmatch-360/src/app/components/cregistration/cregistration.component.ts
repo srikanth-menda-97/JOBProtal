@@ -31,20 +31,22 @@ export class CregistrationComponent {
     (<any>Object).values(registerForm.controls).forEach((control: any) => {
       control.markAsTouched();
     });
-
-    this.candidateService.registerCandidate(this.candidate).subscribe({
-      next: (newCandidate: Icandidate) => {
-        // console.log('Candidate registered successfully!', newCandidate);
-        // alert('Registration successful!');
-        this.clearForm();
-        this.router.navigate(['/cdashboard', newCandidate.candidate_id]);
-      },
-      error : (error) => {
-        console.error('Candidate registration failed:', error);
-        alert('Registration failed. Please try again later.');
-
-      },
-    });
+    if (registerForm.valid) {
+      this.candidateService.registerCandidate(this.candidate).subscribe({
+        next: (newCandidate: Icandidate) => {
+          // console.log('Candidate registered successfully!', newCandidate);
+          // alert('Registration successful!');
+          this.clearForm();
+          this.router.navigate(['/cdashboard', newCandidate.candidate_id]);
+        },
+        error : (error) => {
+          console.error('Candidate registration failed:', error);
+          alert('Registration failed. Please try again later.');
+  
+        },
+      });
+    }
+   
   }
   private isFormInvalid(): boolean {
     return (
