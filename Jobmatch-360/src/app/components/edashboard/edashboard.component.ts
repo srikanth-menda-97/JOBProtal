@@ -37,6 +37,6 @@ export class EdashboardComponent implements OnInit {
   }
 
   viewApplications(jobId: any) {
-    this.router.navigate(['/view-applications', jobId]);
+    this.router.navigate(['/edashboard', this.employerId, 'view-applications', jobId]);
   }
 }

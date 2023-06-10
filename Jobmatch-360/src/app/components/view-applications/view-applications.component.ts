@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApplicationService } from 'src/app/services/application.service';
 
 @Component({
@@ -10,10 +10,13 @@ import { ApplicationService } from 'src/app/services/application.service';
 export class ViewApplicationsComponent implements OnInit {
   jobId: any;
   applicationsData: any;
+  employerId: any;
   constructor(private applicationService: ApplicationService,
-    private activatedRoute: ActivatedRoute,) { }
+    private activatedRoute: ActivatedRoute,
+    private router: Router,) { }
 
   ngOnInit(): void {
+    this.employerId = this.activatedRoute.snapshot.params["term"];
     this.jobId = this.activatedRoute.snapshot.params["job_id"];
     this.getApplicationsData();
   }
@@ -38,11 +41,24 @@ export class ViewApplicationsComponent implements OnInit {
     this.applicationService.downloadResume(payload)
       .subscribe({
         next: (response: Blob) => {
+          let url = window.URL.createObjectURL(response);
+          let a = document.createElement('a');
+          document.body.appendChild(a);
+          a.setAttribute('style', 'display: none');
+          a.href = url;
+          a.download = resumePath;
+          a.click();
+          window.URL.revokeObjectURL(url);
+          a.remove();
         },
         error: (error: any) => {
           console.error('Download failed:', error);
           alert('Download failed. Please try again.');
         },
       });
+  }
+
+  goToDashboard() {
+    this.router.navigate(['/edashboard', this.employerId]);
   }
 }
